@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Timeline.Actions;
@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private MysteryShip mysteryShip;
     private Bunker[] bunkers;
 
-    //Anv?nds ej just nu, men ni kan anv?nda de senare
+    //Anv�nds ej just nu, men ni kan anv�nda de senare
     public int score { get; private set; } = 0;
     public int lives { get; private set; } = 3;
 
