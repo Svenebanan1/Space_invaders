@@ -7,9 +7,22 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Laser : Projectile
 {
+
+    public Sprite[] animationSprites = new Sprite[3];
+    public float animationTime;
+
+    SpriteRenderer spRend;
+    int animationFrame;
     private void Awake()
     {
         direction = Vector3.up;
+        spRend = GetComponent<SpriteRenderer>();
+        spRend.sprite = animationSprites[0];
+    }
+
+    private void Start()
+    {
+        InvokeRepeating(nameof(AnimateSprite), animationTime, animationTime);
     }
 
     void Update()
@@ -30,5 +43,15 @@ public class Laser : Projectile
         {
             Destroy(gameObject);
         }
+    }
+
+    private void AnimateSprite()
+    {
+        animationFrame++;
+        if (animationFrame >= animationSprites.Length)
+        {
+            animationFrame = 0;
+        }
+        spRend.sprite = animationSprites[animationFrame];
     }
 }
