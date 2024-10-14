@@ -1413,7 +1413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6f1d3a2ecd8dc428a188c3348fc44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserPrefab: {fileID: -8207934877685602216, guid: 9f4db4dd3c03cef409ab1a4d53408022, type: 3}
+  laserPrefab: {fileID: -1392965900542551936, guid: e6da6c52f439a004d81f9211a1091659, type: 3}
 --- !u!1 &1932414184
 GameObject:
   m_ObjectHideFlags: 0

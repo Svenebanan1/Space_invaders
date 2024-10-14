@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 {
     public Laser laserPrefab;
     Laser laser;
-    float speed = 5f;
+    float speed = 15f;
 
     Vector3 laserspawn;
 
