@@ -11,9 +11,12 @@ public class Player : MonoBehaviour
     Laser laser;
     float speed = 5f;
 
+    Vector3 laserspawn;
+
     // Update is called once per frame
     void Update()
     {
+        laserspawn = transform.position + new Vector3(0f, 1.5f, 0);
         Vector3 position = transform.position;
 
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -35,7 +38,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && laser == null)
         {
-            laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+            laser = Instantiate(laserPrefab, laserspawn, Quaternion.identity);
         }
     }
 
