@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Missile : Projectile
 {
+    float Speed = 12f;
 
     public Sprite[] animationSprites = new Sprite[3];
     public float animationTime;
@@ -27,7 +28,7 @@ public class Missile : Projectile
 
     void Update()
     {
-        transform.position += speed * Time.deltaTime * direction;
+        transform.position += Speed * Time.deltaTime * direction;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
