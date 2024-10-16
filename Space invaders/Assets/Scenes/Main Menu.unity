@@ -1032,18 +1032,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a0145ac00c2f4f64493ecaafbe4f66eb, type: 3}
   - {fileID: 21300000, guid: d15219698e76ae642bf0646e30aa7937, type: 3}
   - {fileID: 21300000, guid: 80c84fd267852ca43af102cd043e88ef, type: 3}
-  - {fileID: 21300000, guid: 2d2281c7d74b0f24a9b7b17cd6d15c32, type: 3}
-  - {fileID: 21300000, guid: 2d2281c7d74b0f24a9b7b17cd6d15c32, type: 3}
-  - {fileID: 21300000, guid: 1b067fa17fc337d4f9c45b438ef4f15a, type: 3}
-  - {fileID: 21300000, guid: eba382ed42d65e749b9b54064152fd56, type: 3}
-  - {fileID: 21300000, guid: eba382ed42d65e749b9b54064152fd56, type: 3}
-  - {fileID: 21300000, guid: 10d953ae2d302c54d9791156d2ce9275, type: 3}
-  - {fileID: 21300000, guid: bc38b20a4076f4f429a2cde9d88b7bd5, type: 3}
-  - {fileID: 21300000, guid: ca969db061f3bb24c8ba1dec7be089c8, type: 3}
-  - {fileID: 21300000, guid: ca969db061f3bb24c8ba1dec7be089c8, type: 3}
-  - {fileID: 21300000, guid: ca969db061f3bb24c8ba1dec7be089c8, type: 3}
-  - {fileID: 21300000, guid: ca969db061f3bb24c8ba1dec7be089c8, type: 3}
-  - {fileID: 21300000, guid: ca969db061f3bb24c8ba1dec7be089c8, type: 3}
+  - {fileID: 21300000, guid: 80c84fd267852ca43af102cd043e88ef, type: 3}
+  - {fileID: 21300000, guid: 80c84fd267852ca43af102cd043e88ef, type: 3}
+  - {fileID: 21300000, guid: 80c84fd267852ca43af102cd043e88ef, type: 3}
   animationTime: 0.1
 --- !u!1 &623324905
 GameObject:
