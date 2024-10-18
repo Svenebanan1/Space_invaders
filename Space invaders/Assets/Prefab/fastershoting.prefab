@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8019322655140492510}
   - component: {fileID: 7744731706551153214}
   - component: {fileID: 7753020598182854523}
-  m_Layer: 0
-  m_Name: faster shoting
+  m_Layer: 3
+  m_Name: fastershoting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
