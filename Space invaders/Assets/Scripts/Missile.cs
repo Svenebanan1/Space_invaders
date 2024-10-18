@@ -7,7 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Missile : Projectile
 {
-    float Speed = 12f;
+    float Speed = 4f;
 
     public Sprite[] animationSprites = new Sprite[3];
     public float animationTime;

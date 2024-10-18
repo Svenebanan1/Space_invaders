@@ -27,8 +27,8 @@ public class Invaders : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(MissileAttack), 0.7f, 0.7f); //Hur ofta ska den skjuta iv�g missiler
-        InvokeRepeating(nameof(Powerup), 0.3f, 0.3f);
+        InvokeRepeating(nameof(MissileAttack), 1f, 1f); //Hur ofta ska den skjuta iv�g missiler
+        InvokeRepeating(nameof(Powerup), 10f, 10f);
     }
 
     //Skapar sj�lva griden med alla invaders.

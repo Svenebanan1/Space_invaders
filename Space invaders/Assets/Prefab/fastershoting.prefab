@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdff6f299d5bfec4bb95eea909bd873e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 2
   animationSprites:
   - {fileID: 21300000, guid: 38fa4e62400b5354c9dceeb4926fdc36, type: 3}
   animationTime: 0
