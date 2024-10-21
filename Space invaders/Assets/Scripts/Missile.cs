@@ -8,9 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Missile : Projectile
 {
-    [SerializeField] private AudioSource Missilesound;
-
-    private AudioSource audioSource;
+   
 
 
 
@@ -30,32 +28,20 @@ public class Missile : Projectile
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+       
         InvokeRepeating(nameof(AnimateSprite), animationTime, animationTime);
     }
 
     void Update()
     {
-
+        
         transform.position += Speed * Time.deltaTime * direction;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Bunker"))
-        {
-
-            Destroy(gameObject);
-            audioSource.Play();
-        }
-
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Boundary"))
-        {
-
-            Destroy(gameObject);
-
-        }
+        Destroy(gameObject);
         //s� fort den krockar med n�got s� ska den f�rsvinna.
 
     }

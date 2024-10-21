@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -3067895876807463225}
   - component: {fileID: 5027126993392600142}
   - component: {fileID: 8004769456314315298}
+  - component: {fileID: 7793859361181543917}
   m_Layer: 9
   m_Name: Missiel1
   m_TagString: Untagged
@@ -172,7 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761a66fbbaefb8a4680552fd0c872c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Missilesound: {fileID: 8004769456314315298}
   animationSprites:
   - {fileID: 21300000, guid: 7e8ba146cfbeed24a84c9d455eea4294, type: 3}
   - {fileID: 21300000, guid: facc28fe4b15a3a42915d06195ec945d, type: 3}
@@ -273,3 +273,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7793859361181543917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975699548252725946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb74001ce24c8d43ad8865999f1a9ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Missilesound: {fileID: 8004769456314315298}
