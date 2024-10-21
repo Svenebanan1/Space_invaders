@@ -19,6 +19,9 @@ public class Invaders : MonoBehaviour
 
     public Powerup fastershotingPrefab;
 
+    public Powerup stoptimePrefab;
+
+
     private void Awake()
     {
         initialPosition = transform.position;
@@ -28,7 +31,8 @@ public class Invaders : MonoBehaviour
     private void Start()
     {
         InvokeRepeating(nameof(MissileAttack), 1f, 1f); //Hur ofta ska den skjuta iv�g missiler
-        InvokeRepeating(nameof(Powerup), 10f, 10f);
+        InvokeRepeating(nameof(Fastershoting), 10f, 10f);
+        InvokeRepeating(nameof(Stoptime), 10f, 10f);
     }
 
     //Skapar sj�lva griden med alla invaders.
@@ -93,7 +97,7 @@ public class Invaders : MonoBehaviour
 
     }
 
-    private void Powerup()
+    private void Fastershoting()
     {
         int nrOfInvaders = GetInvaderCount();
 
@@ -113,6 +117,32 @@ public class Invaders : MonoBehaviour
             if (rand < 0.2)
             {
                 Instantiate(fastershotingPrefab, invader.position, Quaternion.identity);
+                break;
+            }
+        }
+
+    }
+
+    private void Stoptime()
+    {
+        int nrOfInvaders = GetInvaderCount();
+
+        if (nrOfInvaders == 0)
+        {
+            return;
+        }
+
+        foreach (Transform invader in transform)
+        {
+
+            if (!invader.gameObject.activeInHierarchy) //om en invader �r d�d ska den inte kunna skjuta...
+                continue;
+
+
+            float rand = UnityEngine.Random.value;
+            if (rand < 0.2)
+            {
+                Instantiate(stoptimePrefab, invader.position, Quaternion.identity);
                 break;
             }
         }

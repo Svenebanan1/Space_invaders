@@ -1359,6 +1359,7 @@ MonoBehaviour:
   - {fileID: 6873295018305922994, guid: 9f45d2e0f05a8ba4ab528f8816fef74b, type: 3}
   missilePrefab: {fileID: 5027126993392600142, guid: 23ac23ecf143d01448c0e9fbbbebbb6e, type: 3}
   fastershotingPrefab: {fileID: 7753020598182854523, guid: 25a4409803324184daa2033d652cebc2, type: 3}
+  stoptimePrefab: {fileID: -7609374994732719480, guid: da59ac6b93af116409b57768449c865d, type: 3}
 --- !u!1 &1072893323
 GameObject:
   m_ObjectHideFlags: 0
