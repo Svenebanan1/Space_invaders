@@ -31,8 +31,8 @@ public class Invaders : MonoBehaviour
     private void Start()
     {
         InvokeRepeating(nameof(MissileAttack), 1f, 1f); //Hur ofta ska den skjuta iv�g missiler
-        InvokeRepeating(nameof(Fastershoting), 10f, 10f);
-        InvokeRepeating(nameof(Stoptime), 10f, 10f);
+        InvokeRepeating(nameof(Fastershoting), 20f, 20f);
+        InvokeRepeating(nameof(Stoptime), 25f, 25f);
     }
 
     //Skapar sj�lva griden med alla invaders.
@@ -114,7 +114,7 @@ public class Invaders : MonoBehaviour
 
 
             float rand = UnityEngine.Random.value;
-            if (rand < 0.2)
+            if (rand < 0.15)
             {
                 Instantiate(fastershotingPrefab, invader.position, Quaternion.identity);
                 break;
