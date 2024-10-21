@@ -10,10 +10,7 @@ public class Player : MonoBehaviour
     public Laser laserPrefab;
    public Laser laser;
     float Playerspeed = 10f;
-    float speed = 10f;
-    public float time = 0f;
-
-    int Lasercount = 0;
+    
 
     
 
@@ -49,15 +46,7 @@ public class Player : MonoBehaviour
                 laser = Instantiate(laserPrefab, laserspawn, Quaternion.identity);
                 
             }
-            
-
-        
-        if(time > 0)
-        {
-            speed = 25;
-            time -= Time.deltaTime;
-            
-        }
+           
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -69,8 +58,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Powerups"))
         {
-            time += 2f;
-           
+          
 
 
         }

@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Timeline.Actions;
+
 
 [DefaultExecutionOrder(-1)]
 public class GameManager : MonoBehaviour
@@ -12,6 +14,7 @@ public class GameManager : MonoBehaviour
     private Invaders invaders;
     private MysteryShip mysteryShip;
     private Bunker[] bunkers;
+   
 
     //Anv�nds ej just nu, men ni kan anv�nda de senare
     public int score { get; private set; } = 0;
@@ -114,7 +117,7 @@ public class GameManager : MonoBehaviour
 
         if (invaders.GetInvaderCount() == 0)
         {
-            NewRound();
+            SceneManager.LoadSceneAsync(3);
         }
     }
 
@@ -122,7 +125,7 @@ public class GameManager : MonoBehaviour
     {
         mysteryShip.gameObject.SetActive(false);
     }
-
+   
     public void OnBoundaryReached()
     {
         if (invaders.gameObject.activeSelf)
