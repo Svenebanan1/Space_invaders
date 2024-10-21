@@ -1,20 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Animations;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 public class Player : MonoBehaviour
 {
+    [SerializeField] private AudioSource lasersound;
+
     public Laser laserPrefab;
    public Laser laser;
     float Playerspeed = 10f;
-    
 
-    
+
+    private AudioSource audioSource;
 
     Vector3 laserspawn;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -42,7 +49,7 @@ public class Player : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space) && laser == null)
             {
-               
+                audioSource.Play();
                 laser = Instantiate(laserPrefab, laserspawn, Quaternion.identity);
                 
             }

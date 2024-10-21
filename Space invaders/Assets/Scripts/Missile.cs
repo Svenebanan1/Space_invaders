@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -7,6 +8,12 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Missile : Projectile
 {
+    [SerializeField] private AudioSource Missilesound;
+
+    private AudioSource audioSource;
+
+
+
     float Speed = 4f;
 
     public Sprite[] animationSprites = new Sprite[3];
@@ -23,18 +30,37 @@ public class Missile : Projectile
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         InvokeRepeating(nameof(AnimateSprite), animationTime, animationTime);
     }
 
     void Update()
     {
+
         transform.position += Speed * Time.deltaTime * direction;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject); //s� fort den krockar med n�got s� ska den f�rsvinna.
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Bunker"))
+        {
+
+            Destroy(gameObject);
+            audioSource.Play();
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Boundary"))
+        {
+
+            Destroy(gameObject);
+
+        }
+        //s� fort den krockar med n�got s� ska den f�rsvinna.
+
     }
+    
+    
 
     private void AnimateSprite()
     {
@@ -45,5 +71,8 @@ public class Missile : Projectile
         }
         spRend.sprite = animationSprites[animationFrame];
     }
+
+
+
 
 }
