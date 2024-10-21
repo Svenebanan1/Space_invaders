@@ -2257,8 +2257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: -1392965900542551936, guid: e6da6c52f439a004d81f9211a1091659, type: 3}
-  laser: {fileID: 0}
-  time: 0
+  laser: {fileID: -1392965900542551936, guid: e6da6c52f439a004d81f9211a1091659, type: 3}
 --- !u!1 &1932414184
 GameObject:
   m_ObjectHideFlags: 0
