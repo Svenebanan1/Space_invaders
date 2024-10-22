@@ -8,56 +8,36 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Missile : Projectile
 {
-   
-
-
 
     float Speed = 4f;
 
-    public Sprite[] animationSprites = new Sprite[3];
-    public float animationTime;
-
-    SpriteRenderer spRend;
+    
     int animationFrame;
     private void Awake()
     {
         direction = Vector3.down;
-        spRend = GetComponent<SpriteRenderer>();
-        spRend.sprite = animationSprites[0];
-    }
-
-    private void Start()
-    {
        
-        InvokeRepeating(nameof(AnimateSprite), animationTime, animationTime);
     }
 
+    
     void Update()
     {
-        
+ 
         transform.position += Speed * Time.deltaTime * direction;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+       
         Destroy(gameObject);
+       
         //s� fort den krockar med n�got s� ska den f�rsvinna.
 
     }
     
     
 
-    private void AnimateSprite()
-    {
-        animationFrame++;
-        if (animationFrame >= animationSprites.Length)
-        {
-            animationFrame = 0;
-        }
-        spRend.sprite = animationSprites[animationFrame];
-    }
-
+  
 
 
 
