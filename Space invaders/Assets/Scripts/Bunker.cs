@@ -6,6 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Bunker : MonoBehaviour
 {
+
+    public Sprite Hp1;
+    public Sprite Hp2;
+    public Sprite Hp3;
+    public Sprite Hp4;
+    public Sprite Hp0;
+
     int nrOfHits = 0;
     SpriteRenderer spRend;
     private void Awake()
@@ -20,19 +27,43 @@ public class Bunker : MonoBehaviour
         {
 
             //�ndrar f�rgen beroende p� antal tr�ffar.
-            nrOfHits++;
-            Color oldColor = spRend.color;
+            nrOfHits += 1;
+           
 
-            Color newColor = new Color(oldColor.r + (nrOfHits * 0.1f), oldColor.g + (nrOfHits * 0.1f), oldColor.b + (nrOfHits * 0.1f));
+          
 
-            spRend.color = newColor;
-
-            if (nrOfHits == 4)
-            {
-                gameObject.SetActive(false);
-            }
+           
 
         }
+    }
+
+    private void Update()
+    {
+        if (nrOfHits == 1)
+        {
+            spRend.sprite = Hp1;
+        }
+        else if (nrOfHits == 2)
+        {
+            spRend.sprite = Hp2;
+        }
+        else if (nrOfHits == 3)
+        {
+            spRend.sprite = Hp3;
+        }
+        else if (nrOfHits == 4)
+        {
+           
+            gameObject.SetActive(false);
+            
+            spRend.sprite = Hp4;
+        }
+      
+                
+           
+        
+
+
     }
 
     public void ResetBunker()
