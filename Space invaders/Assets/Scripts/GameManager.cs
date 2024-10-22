@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    
+    
     private Player player;
     private Invaders invaders;
     private MysteryShip mysteryShip;
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+
         player = FindObjectOfType<Player>();
         invaders = FindObjectOfType<Invaders>();
         mysteryShip = FindObjectOfType<MysteryShip>();
@@ -54,8 +57,11 @@ public class GameManager : MonoBehaviour
     {
         if (lives <= 0 && Input.GetKeyDown(KeyCode.Return))
         {
-            NewGame();
+            NewGame(); 
         }
+
+
+        
     }
 
     private void NewGame()

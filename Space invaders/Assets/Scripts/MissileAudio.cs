@@ -6,6 +6,7 @@ using UnityEngine.Animations;
 public class MissileAudio : MonoBehaviour
 {
     GameObject Missile;
+   
 
     [SerializeField] private AudioSource Missilesound;
 
@@ -20,10 +21,9 @@ public class MissileAudio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(Missile == null)
-        {
+        
             audioSource.Play();
-        }
+        
     }
 
     
