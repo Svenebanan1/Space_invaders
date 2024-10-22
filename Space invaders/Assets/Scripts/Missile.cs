@@ -8,10 +8,6 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Missile : Projectile
 {
-   
-
-
-
 
     float Speed = 4f;
 
@@ -23,17 +19,10 @@ public class Missile : Projectile
        
     }
 
-    private void Start()
-    {
-      
-
-       
-    }
-
+    
     void Update()
     {
-      
-        
+ 
         transform.position += Speed * Time.deltaTime * direction;
     }
 
