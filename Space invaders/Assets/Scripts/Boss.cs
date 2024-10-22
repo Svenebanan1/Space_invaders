@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Animations;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class Boss : MonoBehaviour
 {
-    public float life = 100;
+  
+
+
+    public float life = 10;
     float speed = 5f;
     float cycleTime = 5f;
 
@@ -15,8 +19,19 @@ public class Boss : MonoBehaviour
     bool isVisible;
 
 
+    public Sprite[] animationSprites = new Sprite[9];
+    public float animationTime;
+    int animationFrame;
+    SpriteRenderer spRend;
+
+
     void Start()
     {
+
+        spRend = GetComponent<SpriteRenderer>();
+        spRend.sprite = animationSprites[0];
+        InvokeRepeating(nameof(AnimateSprite), animationTime, animationTime);
+
         Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
         Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
 
@@ -65,6 +80,11 @@ public class Boss : MonoBehaviour
                 SetInvisible();
             }
         }
+
+        if (life <= 0)
+        {
+            GameManagerboss.Instance.OnBossKilled(this);
+        }
     }
 
 
@@ -96,7 +116,18 @@ public class Boss : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
-            life = life = -1;
+           life = life - 1;
         }
     }
+
+    private void AnimateSprite()
+    {
+        animationFrame++;
+        if (animationFrame >= animationSprites.Length)
+        {
+            animationFrame = 0;
+        }
+        spRend.sprite = animationSprites[animationFrame];
+    }
+
 }

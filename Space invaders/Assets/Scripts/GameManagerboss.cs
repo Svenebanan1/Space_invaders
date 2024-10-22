@@ -104,9 +104,9 @@ public class GameManagerboss : MonoBehaviour
 
     }
 
-    public void OnInvaderKilled(Invader invader)
+    public void OnBossKilled(Boss boss)
     {
-        invader.gameObject.SetActive(false);
+        boss.gameObject.SetActive(false);
 
 
 
