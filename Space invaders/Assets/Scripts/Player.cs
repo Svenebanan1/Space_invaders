@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,8 @@ public class Player : MonoBehaviour
     public Laser laserPrefab;
     public Laser laser;
     float Playerspeed = 10f;
-    public float time = 5f;
+    public DateTime? fastshottime = null;
+    public DateTime? stoptime = null;
 
     public Sprite leftTurn;
     public Sprite rightTurn;
@@ -71,14 +73,40 @@ public class Player : MonoBehaviour
 
         transform.position = position;
 
+        if (fastshottime.HasValue)
+        {
+            if (fastshottime.Value < DateTime.Now)
+            {
+                fastshottime = null;
+            }
+        }
 
+        if (stoptime.HasValue)
+        {
+            if (stoptime.Value < DateTime.Now)
+            {
+                stoptime = null;
+            }
+        }
 
-        if (Input.GetKeyDown(KeyCode.Space) && laser == null)
+        if (stoptime.HasValue)
+        {
+            Time.timeScale = 0.5f;
+            
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && (laser == null || fastshottime.HasValue) )
         {
             audioSource.Play();
             laser = Instantiate(laserPrefab, laserspawn, Quaternion.identity);
 
         }
+
+
 
     }
 
@@ -89,22 +117,18 @@ public class Player : MonoBehaviour
             GameManager.Instance.OnPlayerKilled(this);
         }
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Powerups"))
-        {
-        
-            
-
-            time = time - Time.deltaTime;
-              
-            
-            Debug.Log(time);
+       
            
-            if (collision.gameObject.tag == "Fastershoting")
-            {
-                
-            }
+         if (collision.gameObject.tag == "Fastershoting")
+         {
+            fastshottime = DateTime.Now.AddSeconds(5);
+         }
 
+         if (collision.gameObject.tag == "Stop time")
+        {
+            stoptime = DateTime.Now.AddSeconds(5);
         }
+       
 
     }
 
