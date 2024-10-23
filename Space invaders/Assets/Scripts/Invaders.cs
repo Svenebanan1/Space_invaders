@@ -31,7 +31,7 @@ public class Invaders : MonoBehaviour
     private void Start()
     {
         InvokeRepeating(nameof(MissileAttack), 1.5f, 1.5f); //Hur ofta ska den skjuta iv�g missiler
-        InvokeRepeating(nameof(Fastershoting), 20f, 20f);
+        InvokeRepeating(nameof(Fastershoting), 2f, 2f);
         InvokeRepeating(nameof(Stoptime), 25f, 25f);
     }
 
