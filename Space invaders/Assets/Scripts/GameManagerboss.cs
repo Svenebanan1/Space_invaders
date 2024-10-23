@@ -108,11 +108,11 @@ public class GameManagerboss : MonoBehaviour
     {
         boss.gameObject.SetActive(false);
 
-
+        
 
         if (boss.GetBossCount() == 0)
         {
-            SceneManager.LoadSceneAsync(0);
+            SceneManager.LoadSceneAsync(3);
         }
     }
 
