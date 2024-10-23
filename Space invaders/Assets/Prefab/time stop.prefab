@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7609374994732719480}
   m_Layer: 3
   m_Name: time stop
-  m_TagString: Untagged
+  m_TagString: Stop time
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +12,9 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioSource lasersound;
 
     public Laser laserPrefab;
-   public Laser laser;
+    public Laser laser;
     float Playerspeed = 10f;
+    public float time = 5f;
 
     public Sprite leftTurn;
     public Sprite rightTurn;
@@ -36,7 +38,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
 
         laserspawn = transform.position + new Vector3(0f, 1.5f, 0);
         Vector3 position = transform.position;
@@ -60,7 +62,7 @@ public class Player : MonoBehaviour
             }
             spRend.sprite = animationSprites[animationFrame];
         }
-       
+
 
         Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
         Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
@@ -71,13 +73,13 @@ public class Player : MonoBehaviour
 
 
 
-            if (Input.GetKeyDown(KeyCode.Space) && laser == null)
-            {
-                audioSource.Play();
-                laser = Instantiate(laserPrefab, laserspawn, Quaternion.identity);
-                
-            }
-           
+        if (Input.GetKeyDown(KeyCode.Space) && laser == null)
+        {
+            audioSource.Play();
+            laser = Instantiate(laserPrefab, laserspawn, Quaternion.identity);
+
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -89,8 +91,18 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Powerups"))
         {
-          
+        
+            
 
+            time = time - Time.deltaTime;
+              
+            
+            Debug.Log(time);
+           
+            if (collision.gameObject.tag == "Fastershoting")
+            {
+                
+            }
 
         }
 
