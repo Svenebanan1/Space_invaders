@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
 
         if (invaders.GetInvaderCount() == 0)
         {
-            SceneManager.LoadSceneAsync(3);
+            SceneManager.LoadSceneAsync(4);
         }
     }
 

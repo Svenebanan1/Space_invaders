@@ -11,7 +11,7 @@ public class Boss : MonoBehaviour
 
     public float life = 10;
     float speed = 5f;
-    float cycleTime = 5f;
+    float cycleTime = 0.2f;
 
     Vector2 leftDestination;
     Vector2 rightDestination;
