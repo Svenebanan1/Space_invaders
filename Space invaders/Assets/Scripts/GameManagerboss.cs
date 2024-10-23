@@ -112,7 +112,7 @@ public class GameManagerboss : MonoBehaviour
 
         if (boss.GetBossCount() == 0)
         {
-            SceneManager.LoadSceneAsync(3);
+            SceneManager.LoadSceneAsync(4);
         }
     }
 
