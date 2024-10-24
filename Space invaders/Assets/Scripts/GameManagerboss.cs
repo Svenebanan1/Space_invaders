@@ -82,10 +82,6 @@ public class GameManagerboss : MonoBehaviour
         player.gameObject.SetActive(true);
     }
 
-    private void GameOver()
-    {
-        boss.gameObject.SetActive(false);
-    }
 
     private void SetScore(int score)
     {
@@ -106,15 +102,10 @@ public class GameManagerboss : MonoBehaviour
 
     public void OnBossKilled(Boss boss)
     {
-        boss.gameObject.SetActive(false);
-
-        
-
-        if (boss.GetBossCount() == 0)
-        {
-            SceneManager.LoadSceneAsync(4);
-        }
+       
     }
+
+ 
 
     public void OnMysteryShipKilled(MysteryShip mysteryShip)
     {

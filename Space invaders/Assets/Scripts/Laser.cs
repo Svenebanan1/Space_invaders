@@ -5,8 +5,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-public class Laser : Projectile
+public class Laser : MonoBehaviour
 {
+    protected Vector3 direction;
+    protected float speed = 10f;
 
     public Sprite[] animationSprites = new Sprite[3];
     public float animationTime;

@@ -4,14 +4,16 @@ using UnityEngine.Animations;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class Boss : MonoBehaviour
+public class Boss :MonoBehaviour
 {
-  
 
+    public CameraShake cameraShake;
 
     public float life = 10;
     float speed = 5f;
     float cycleTime = 0.2f;
+    float rotation = -0.8f;
+    
 
     Vector2 leftDestination;
     Vector2 rightDestination;
@@ -83,7 +85,15 @@ public class Boss : MonoBehaviour
 
         if (life <= 0)
         {
-            GameManagerboss.Instance.OnBossKilled(this);
+
+            if (life == 0)
+            {
+                StartCoroutine(cameraShake.Shake(2f, 4f));
+            }
+
+
+            TurnOff();
+            
         }
     }
 
@@ -104,6 +114,17 @@ public class Boss : MonoBehaviour
 
         Invoke(nameof(SetVisible), cycleTime); //anropar SetVisible efter ett visst antal sekunder
     }
+    public void TurnOff()
+    {
+
+        //animationSprites = new Sprite[0];
+        speed = 0;
+
+        transform.Rotate(new Vector3(0, 0, rotation));
+        transform.position += new Vector3(0, -10,0) * Time.deltaTime;
+       
+        life--;
+    }
 
     void SetVisible()
     {
@@ -112,12 +133,14 @@ public class Boss : MonoBehaviour
         isVisible = true;
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
            life = life - 1;
         }
+
     }
 
     private void AnimateSprite()

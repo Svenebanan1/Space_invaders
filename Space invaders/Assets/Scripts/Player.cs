@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-public class Player : MonoBehaviour
+public class Player : Laser
 {
     [SerializeField] private AudioSource lasersound;
 
@@ -20,10 +20,10 @@ public class Player : MonoBehaviour
 
     public Sprite leftTurn;
     public Sprite rightTurn;
-    public Sprite[] animationSprites = new Sprite[3];
-    public float animationTime;
-    int animationFrame;
-    SpriteRenderer spRend;
+    public Sprite[] playeranimationSprites = new Sprite[3];
+    public float playeranimationTime;
+    int playeranimationFrame;
+    SpriteRenderer playerspRend;
 
     private AudioSource audioSource;
 
@@ -31,8 +31,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        spRend = GetComponent<SpriteRenderer>();
-        spRend.sprite = animationSprites[0];
+        playerspRend = GetComponent<SpriteRenderer>();
+        playerspRend.sprite = playeranimationSprites[0];
 
         audioSource = GetComponent<AudioSource>();
     }
@@ -47,22 +47,22 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            spRend.sprite = leftTurn;
+            playerspRend.sprite = leftTurn;
             position.x -= Playerspeed * Time.deltaTime;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            spRend.sprite = rightTurn;
+            playerspRend.sprite = rightTurn;
             position.x += Playerspeed * Time.deltaTime;
         }
         else
         {
-            animationFrame++;
-            if (animationFrame >= animationSprites.Length)
+            playeranimationFrame++;
+            if (playeranimationFrame >= playeranimationSprites.Length)
             {
-                animationFrame = 0;
+                playeranimationFrame = 0;
             }
-            spRend.sprite = animationSprites[animationFrame];
+            playerspRend.sprite = playeranimationSprites[playeranimationFrame];
         }
 
 
@@ -92,11 +92,13 @@ public class Player : MonoBehaviour
         if (stoptime.HasValue)
         {
             Time.timeScale = 0.5f;
+            speed = 20f;
             
         }
         else
         {
             Time.timeScale = 1f;
+            speed = 10f;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && (laser == null || fastshottime.HasValue) )
@@ -121,7 +123,7 @@ public class Player : MonoBehaviour
            
          if (collision.gameObject.tag == "Fastershoting")
          {
-            fastshottime = DateTime.Now.AddSeconds(5);
+            fastshottime = DateTime.Now.AddSeconds(3);
          }
 
          if (collision.gameObject.tag == "Stop time")
