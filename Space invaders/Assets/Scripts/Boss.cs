@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.Animations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class Boss :MonoBehaviour
@@ -12,7 +13,7 @@ public class Boss :MonoBehaviour
     public float life = 10;
     float speed = 5f;
     float cycleTime = 0.2f;
-    float rotation = -0.8f;
+    float rotation = -0.2f;
     
 
     Vector2 leftDestination;
@@ -86,10 +87,7 @@ public class Boss :MonoBehaviour
         if (life <= 0)
         {
 
-            if (life == 0)
-            {
-                StartCoroutine(cameraShake.Shake(2f, 4f));
-            }
+          
 
 
             TurnOff();
@@ -115,14 +113,17 @@ public class Boss :MonoBehaviour
         Invoke(nameof(SetVisible), cycleTime); //anropar SetVisible efter ett visst antal sekunder
     }
     public void TurnOff()
-    {
-
-        //animationSprites = new Sprite[0];
+    {  
         speed = 0;
 
         transform.Rotate(new Vector3(0, 0, rotation));
         transform.position += new Vector3(0, -10,0) * Time.deltaTime;
-       
+
+        if (life == 0)
+        {
+            StartCoroutine(cameraShake.Shake(1.5f, 4f));
+        }
+
         life--;
     }
 
@@ -139,6 +140,11 @@ public class Boss :MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
            life = life - 1;
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("border"))
+        {
+            SceneManager.LoadSceneAsync(4);
         }
 
     }
