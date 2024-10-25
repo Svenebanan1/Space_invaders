@@ -13,9 +13,17 @@ public class MysteryShip : MonoBehaviour
     int direction = -1;
     bool isVisible;
 
+    public Sprite[] animationSprites = new Sprite[3];
+    public float animationTime;
+    int animationFrame;
+    SpriteRenderer spRend;
 
     void Start()
     {
+        InvokeRepeating(nameof(AnimateSprite), animationTime, animationTime);
+        spRend = GetComponent<SpriteRenderer>();
+        spRend.sprite = animationSprites[0];
+
         Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
         Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
 
@@ -89,4 +97,15 @@ public class MysteryShip : MonoBehaviour
             GameManager.Instance.OnMysteryShipKilled(this);
         }
     }
+
+    private void AnimateSprite()
+    {
+        animationFrame++;
+        if (animationFrame >= animationSprites.Length)
+        {
+            animationFrame = 0;
+        }
+        spRend.sprite = animationSprites[animationFrame];
+    }
+
 }

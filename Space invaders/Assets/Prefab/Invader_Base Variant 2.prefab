@@ -15,11 +15,11 @@ PrefabInstance:
     - target: {fileID: -1491124175989803588, guid: 3d0a9244d1eee6844881810f0ac1d919, type: 3}
       propertyPath: animationSprites.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 049a1db178fb9ee4ab19f2562670bf2d, type: 3}
+      objectReference: {fileID: 21300000, guid: 45e72f5ef4676b24389db8899b6285a8, type: 3}
     - target: {fileID: -1491124175989803588, guid: 3d0a9244d1eee6844881810f0ac1d919, type: 3}
       propertyPath: animationSprites.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: dac1d42e02bb96543ad8d02d73040eb5, type: 3}
+      objectReference: {fileID: 21300000, guid: 86d9b7537c1bb0a4d93adcca01eb5bac, type: 3}
     - target: {fileID: 394448171469930737, guid: 3d0a9244d1eee6844881810f0ac1d919, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -66,11 +66,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5224368696471690511, guid: 3d0a9244d1eee6844881810f0ac1d919, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.5
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 5224368696471690511, guid: 3d0a9244d1eee6844881810f0ac1d919, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1
+      value: 1.375
       objectReference: {fileID: 0}
     - target: {fileID: 5224368696471690511, guid: 3d0a9244d1eee6844881810f0ac1d919, type: 3}
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
@@ -123,7 +123,7 @@ PrefabInstance:
     - target: {fileID: 7743084209277057940, guid: 3d0a9244d1eee6844881810f0ac1d919, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 049a1db178fb9ee4ab19f2562670bf2d, type: 3}
+      objectReference: {fileID: 21300000, guid: 45e72f5ef4676b24389db8899b6285a8, type: 3}
     - target: {fileID: 7743084209277057940, guid: 3d0a9244d1eee6844881810f0ac1d919, type: 3}
       propertyPath: m_SortingOrder
       value: 1

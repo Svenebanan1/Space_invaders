@@ -92,19 +92,22 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (stoptime.HasValue)
-        {
-            Time.timeScale = 0.5f;
-            laser.speed = 20f;
-            Playerspeed = 20f;
-            Background.BackgroundSpeed = 14f;
+        if (laser != null) { 
+            if (stoptime.HasValue)
+            {
+                Time.timeScale = 0.5f;
+                laser.speed = 20f;
+                Playerspeed = 20f;
+                Background.BackgroundSpeed = 14f;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                laser.speed = 10f;
+                Playerspeed = 10;
+                Background.BackgroundSpeed = 7f;
+            }
         }
-        else
-        {
-            Time.timeScale = 1f;
-            laser.speed = 10f;
-        }
-
         if (Input.GetKeyDown(KeyCode.Space) && (laser == null || fastshottime.HasValue) )
         {
             audioSource.Play();
