@@ -8,13 +8,16 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-public class Player : Laser
+public class Player : MonoBehaviour
 {
     [SerializeField] private AudioSource lasersound;
 
+    public backgroundmain Background;
+    
+
     public Laser laserPrefab;
     public Laser laser;
-    float Playerspeed = 10f;
+    public float Playerspeed = 10f;
     public DateTime? fastshottime = null;
     public DateTime? stoptime = null;
 
@@ -92,13 +95,14 @@ public class Player : Laser
         if (stoptime.HasValue)
         {
             Time.timeScale = 0.5f;
-            speed = 20f;
-            
+            laser.speed = 20f;
+            Playerspeed = 20f;
+            Background.BackgroundSpeed = 14f;
         }
         else
         {
             Time.timeScale = 1f;
-            speed = 10f;
+            laser.speed = 10f;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && (laser == null || fastshottime.HasValue) )

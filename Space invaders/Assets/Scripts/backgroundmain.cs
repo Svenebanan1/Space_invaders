@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class backgroundmain : Projectile
 {
     private Vector2 Position;
-    float Speed = 7f;
+    public float BackgroundSpeed = 7f;
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class backgroundmain : Projectile
     // Update is called once per frame
     void Update()
     {
-        transform.position += Speed * Time.deltaTime * direction;
+        transform.position += BackgroundSpeed * Time.deltaTime * direction;
 
         Position = transform.position;
 
