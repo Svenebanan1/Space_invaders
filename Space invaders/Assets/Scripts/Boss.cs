@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Animations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class Boss :MonoBehaviour
@@ -21,6 +22,7 @@ public class Boss :MonoBehaviour
     int direction = -1;
     bool isVisible;
 
+    public Slider Healthbar;
 
     public Sprite[] animationSprites = new Sprite[9];
     public float animationTime;
@@ -58,6 +60,9 @@ public class Boss :MonoBehaviour
     }
     void Update()
     {
+
+        Healthbar.value = life;
+
         if (!isVisible) //�r den inte synlig s� ska den ej r�ra sig.
         {
             return;
