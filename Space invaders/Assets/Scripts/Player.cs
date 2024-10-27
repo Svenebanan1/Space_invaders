@@ -126,9 +126,13 @@ public class Player : MonoBehaviour
             GameManager.Instance.OnPlayerKilled(this);
         }
 
-       
-           
-         if (collision.gameObject.tag == "Fastershoting")
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Beam"))
+        {
+            GameManagerboss.Instance.OnPlayerKilled(this);
+        }
+
+
+        if (collision.gameObject.tag == "Fastershoting")
          {
             fastshottime = DateTime.Now.AddSeconds(3);
          }

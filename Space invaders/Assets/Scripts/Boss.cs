@@ -5,8 +5,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 [RequireComponent(typeof(BoxCollider2D))]
-public class Boss :MonoBehaviour
+public class Boss : MonoBehaviour
 {
 
     public CameraShake cameraShake;
@@ -29,14 +30,25 @@ public class Boss :MonoBehaviour
     int animationFrame;
     SpriteRenderer spRend;
 
+    public bossbeam bossbeamPrefab;
+
+    Vector3 Beamspawn;
+
 
     void Start()
     {
 
+        
+
+        InvokeRepeating(nameof(BossbeamAttack), 1.25f, 1.25f);
+
+
         spRend = GetComponent<SpriteRenderer>();
         spRend.sprite = animationSprites[0];
+        
         InvokeRepeating(nameof(AnimateSprite), animationTime, animationTime);
-
+       
+         
         Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
         Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
 
@@ -45,6 +57,17 @@ public class Boss :MonoBehaviour
         rightDestination = new Vector2(rightEdge.x + 1f, transform.position.y);
 
         SetInvisible();
+    }
+
+
+    private void BossbeamAttack()
+    {
+        float rand = UnityEngine.Random.value;
+        if (rand < 2)
+        {
+            Instantiate(bossbeamPrefab, Beamspawn, Quaternion.identity);
+            
+        }
     }
 
     public int GetBossCount()
@@ -60,6 +83,9 @@ public class Boss :MonoBehaviour
     }
     void Update()
     {
+
+        Beamspawn = transform.position + new Vector3(0f, -1f, 0);
+
 
         Healthbar.value = life;
 
@@ -162,6 +188,8 @@ public class Boss :MonoBehaviour
             animationFrame = 0;
         }
         spRend.sprite = animationSprites[animationFrame];
+
+       
     }
 
 }

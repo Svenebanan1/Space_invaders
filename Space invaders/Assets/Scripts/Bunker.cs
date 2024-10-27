@@ -28,11 +28,13 @@ public class Bunker : MonoBehaviour
 
             //�ndrar f�rgen beroende p� antal tr�ffar.
             nrOfHits += 1;
-           
 
-          
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("Beam"))
+        {
 
-           
+            //�ndrar f�rgen beroende p� antal tr�ffar.
+            nrOfHits += 1;
 
         }
     }
